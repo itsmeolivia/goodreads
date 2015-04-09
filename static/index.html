@@ -10,5 +10,23 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+  <canvas></canvas>
+  <script src="chart.js"></script>
+  <script>
+    var data = [{
+      value:22,
+      label:"Woman",
+      color:"#FF0000",
+      highlight:"#EF0000"
+      },{
+      value:58,
+      label:"Man",
+      color:"#00FF00",
+      highlight:"#00EF00"
+    }];
+    var context = document.querySelector("canvas").getContext("2d");
+    var chart = new Chart(context);
+    chart.Pie(data);
+  </script>
 </body>
 </html>
