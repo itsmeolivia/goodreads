@@ -1,4 +1,5 @@
 from rauth.service import OAuth1Service, OAuth1Session
+from bs4 import BeautifulSoup
 import os
 
 CONSUMER_KEY = os.environ['GOODREADSKEY']
@@ -31,7 +32,8 @@ data = {}
 
 # add this to our "to-read" shelf
 response = session.get('https://www.goodreads.com/api/auth_user')
-print response
+soup = BeautifulSoup(response.text)
+user_id = soup.find('user').get('id')
 
 # these values are what you need to save for subsequent access.
 ACCEESS_TOKEN = session.access_token
