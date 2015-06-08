@@ -27,10 +27,6 @@ while accepted.lower() == 'n':
 
 session = goodreads.get_auth_session(request_token, request_token_secret)
 
-# book_id 631932 is "The Greedy Python"
-data = {}
-
-# add this to our "to-read" shelf
 response = session.get('https://www.goodreads.com/api/auth_user')
 soup = BeautifulSoup(response.text)
 user_id = soup.find('user').get('id')
